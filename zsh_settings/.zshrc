@@ -98,5 +98,15 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+autoload -Uz compinit; compinit;
+bindkey "^Xa" _expand_alias
+zstyle ':completion:*' completer _expand_alias _complete _ignored
+zstyle ':completion:*' regular true
+
 alias gth="cd ~"
-alias gtp="cd ~/Projects"
+alias gtp="cd ~/Projects/"
+alias gtd="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/"
+
+# Function alternatives to alias with arg
+proj() { cd ~/Projects/"$@"; }
+
